@@ -82,10 +82,16 @@ app.use((req, res) => {
     res.status(404).json({ error: "Route not found" });
 });
 
+// ── Export ────────────────────────────────────────────────────────────────────
+module.exports = app;
+
 // ── Start ─────────────────────────────────────────────────────────────────────
-app.listen(PORT, () => {
-    console.log(`🚀 ChainVault Factory API running on http://localhost:${PORT}`);
-    console.log(`   Health: http://localhost:${PORT}/api/health`);
-    console.log(`   Config: http://localhost:${PORT}/api/config`);
-    console.log(`   Factory: ${process.env.LAUNCHPAD_FACTORY_ADDRESS || "(not set)"}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🚀 ChainVault Factory API running on http://localhost:${PORT}`);
+        console.log(`   Health: http://localhost:${PORT}/api/health`);
+        console.log(`   Config: http://localhost:${PORT}/api/config`);
+        console.log(`   Factory: ${process.env.LAUNCHPAD_FACTORY_ADDRESS || "(not set)"}`);
+    });
+}
+
