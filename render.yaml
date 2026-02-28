@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: chainvault-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: LAUNCHPAD_FACTORY_ADDRESS
+        sync: false
+      - key: BSC_TESTNET_RPC
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
