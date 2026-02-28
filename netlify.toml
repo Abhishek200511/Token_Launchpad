@@ -5,3 +5,7 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NEXT_PUBLIC_CONVEX_URL = "https://capable-clownfish-571.eu-west-1.convex.cloud"
+
